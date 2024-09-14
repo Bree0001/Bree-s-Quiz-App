@@ -51,7 +51,7 @@ const questions = [
   },
   {
     question: "How much do you love me?",
-    options: ["A: 1000000 ", "B: 1000000000000", "C: 173467467838384784Q", "D: 435Q692837443829"],
+    options: ["A: 10", "B: 100", "C: 1000", "D: 10000"],
     correct:  "D"
   }
   ];

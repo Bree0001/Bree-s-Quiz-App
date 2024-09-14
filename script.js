@@ -44,48 +44,45 @@ function displayQuestion(index) {
 function checkAnswer(selectedOption, correctOption, selectedButton) {
   isAnswering = false;
   
-  // Loop through buttons and color them based on correctness
+  
   buttonElements.forEach(button => {
     if (button.innerText === correctOption) {
-      button.style.backgroundColor = 'green'; // Correct answer is green
+      button.style.backgroundColor = 'green'; 
     } else if (button === selectedButton) {
-      button.style.backgroundColor = 'red'; // Selected wrong answer is red
+      button.style.backgroundColor = 'red'; 
     }
-    button.disabled = true; // Disable all buttons once an answer is selected
+    button.disabled = true; 
   });
 
-  // Show feedback for correct or incorrect answer
   if (selectedOption === correctOption) {
     score++;
-    feedbackElement.innerText = 'You Got It!😘'; // Correct answer feedback
+    feedbackElement.innerText = 'You Got It!😘'; 
     feedbackElement.style.color = 'green';
   } else {
-    feedbackElement.innerText = 'Really🙄'; // Incorrect answer feedback
+    feedbackElement.innerText = 'Really🙄'; 
     feedbackElement.style.color = 'red';
   }
 
-  // Move to the next question after 1.5 seconds
   setTimeout(() => {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
-      feedbackElement.innerText = ''; // Clear feedback before next question
+      feedbackElement.innerText = ''; 
       displayQuestion(currentQuestionIndex);
     } else {
-      endQuiz(); // End the quiz after the last question
+      endQuiz(); 
     }
-  }, 1500); // Wait for 1.5 seconds before moving to the next question
+  }, 1500); 
 }
 
 function endQuiz() {
-  feedbackElement.innerText = ''; // Clear feedback text
-  questionText.innerText = ''; // Clear question text
+  feedbackElement.innerText = ''; 
+  questionText.innerText = ''; 
 
-  // Hide the answer buttons
+  
   buttonElements.forEach(button => {
     button.style.display = 'none';
   });
 
-  // Display final score and restart button
   scoreElement.innerText = `Quiz finished. Your score is: ${score}`;
   restartButtonElement.style.display = 'block';
 }

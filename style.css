@@ -1,0 +1,60 @@
+body {
+  background-color: #f8c8dc; 
+  font-family: Arial, sans-serif;
+  height: 100vh; 
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-container {
+  background-color: #fff; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+}
+
+.js-question-div, .score-div, .js-restart-button, .js-feedback {
+  display: none;
+}
+
+button {
+  background-color: #f8c8dc; 
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #d95f9d; 
+}
+
+button:focus {
+  outline: none;
+}
+
+.js-options {
+  display: flex;
+  justify-content: space-around;
+}
+
+.js-feedback {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.score-div {
+  margin-top: 20px;
+  font-size: 20px;
+  color: blue;
+}

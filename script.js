@@ -1,3 +1,5 @@
+import {questions} from './questions.js';
+
 const startButtonElement = document.querySelector('.js-start-button');
 const questionsElements = document.querySelector('.js-question-div');
 const questionText = document.querySelector('.question-text');
@@ -21,37 +23,34 @@ function startGame() {
   scoreElement.innerText = '';
   restartButtonElement.style.display = 'none';
   displayQuestion(currentQuestionIndex);
+  
 }
 
 function displayQuestion(index) {
   const questionData = questions[index];
   questionText.innerText = questionData.question;
-  isAnswering = true;
 
   buttonElements.forEach((button, i) => {
     button.style.display = 'inline-block';
     button.style.backgroundColor = '';
     button.disabled = false;
     button.innerText = questionData.options[i];
+
     button.onclick = function () {
-      if (isAnswering) {
-        checkAnswer(questionData.options[i], questionData.correct, button);
-      }
+      checkAnswer(questionData.options[i], questionData.correct, button);
     };
   });
 }
 
 function checkAnswer(selectedOption, correctOption, selectedButton) {
-  isAnswering = false;
-  
-  
+
   buttonElements.forEach(button => {
     if (button.innerText === correctOption) {
       button.style.backgroundColor = 'green'; 
     } else if (button === selectedButton) {
       button.style.backgroundColor = 'red'; 
     }
-    button.disabled = true; 
+   
   });
 
   if (selectedOption === correctOption) {
@@ -62,7 +61,6 @@ function checkAnswer(selectedOption, correctOption, selectedButton) {
     feedbackElement.innerText = 'Really🙄'; 
     feedbackElement.style.color = 'red';
   }
-
   setTimeout(() => {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
@@ -75,9 +73,9 @@ function checkAnswer(selectedOption, correctOption, selectedButton) {
 }
 
 function endQuiz() {
+  console.log("Ending quiz, score: ", score); 
   feedbackElement.innerText = ''; 
   questionText.innerText = ''; 
-
   
   buttonElements.forEach(button => {
     button.style.display = 'none';

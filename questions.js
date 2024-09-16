@@ -1,4 +1,4 @@
-const questions = [
+export const questions = [
   {
     question: "What is my middle name?",
     options: ["A: Warigia", "B: Wanjiku", "C: Wanjiru", "D: Wangari"],
